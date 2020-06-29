@@ -1,0 +1,32 @@
+@import "./module.scss";
+@font-face{
+    font-family: "doudouyu";
+    src:url('./doudouyu-jianti.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#app{
+    &::after{
+        content: 'app after';
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: pink;
+    }
+    &::before{
+        content: "自定义字体就是这么拽";
+        margin: 7px;
+        padding: 5px;
+        position: relative;
+        display: block;
+        color: blue;
+        font-family: 'doudouyu';
+    }
+}
+
+img {
+    width: 80px;
+    height: auto;
+}
+

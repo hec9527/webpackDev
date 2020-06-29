@@ -1,0 +1,13 @@
+@import "./module.css";
+
+
+body{
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+#app{
+    width: 200px;
+    height: 100px;
+    background: red;
+}

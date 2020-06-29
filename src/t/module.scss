@@ -1,0 +1,8 @@
+body{
+    &::after{
+        content: 'body after';
+        position: absolute;
+        display: inline-block;
+        background: yellow;
+    }
+}
