@@ -1,22 +1,28 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const resolve = relativePath => {
+  return path.resolve(__dirname, '..', relativePath);
+};
 
 module.exports = {
   mode: 'development',
 
-  entry: './src/index.js',
+  entry: resolve('src/index.js'),
 
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: resolve('build'),
     filename: 'bundle.[hash:8].js',
     chunkFilename: 'thunk.[thunkhash:8].js',
     publicPath: '/',
   },
 
   resolve: {
-    extensions: ['.js', '.jsx'],
+    // 如果写 则必须包含'.js' 否则会找不到部分库文件
+    extensions: ['.js', '.tx', '.tsx'],
     alias: {
-      '@/*': path.resolve(__dirname, './src/*'),
+      '@/*': resolve('src/*'),
     },
   },
 
@@ -34,6 +40,10 @@ module.exports = {
             use: ['style-loader', 'css-loader'],
           },
         ],
+      },
+      {
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader'],
       },
       {
         test: /\.s(a|c)ss$/,
@@ -80,6 +90,9 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: 'index.html',
@@ -91,14 +104,19 @@ module.exports = {
   ],
 
   devServer: {
-    contentBase: './dist',
     // progress:true, // 已废弃的API，将只能用于控制台
+    contentBase: resolve('dist'),
     host: 'localhost',
     port: 3000,
+    hot: true,
+    open: false,
+    compress: false,
     stats: {
       modules: false,
       debug: false,
       colors: true,
     },
+    historyApiFallback: true,
+    // proxy: {}
   },
 };
