@@ -1,9 +1,16 @@
 {
     "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {},
-    "rulesDirectory": []
-}
+    "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+    "rules":{
+      "no-console":false,
+      "no-debugger":false,
+      "indent":[true, "spaces", 2], 
+      "no-consecutive-blank-lines": [ true, 3 ],
+      "jsx-no-lambda": false,
+      "object-literal-sort-keys": false,
+      "ordered-imports": true
+    },
+    "linterOptions": {
+      "exclude": [ ]
+    }
+  }

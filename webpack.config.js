@@ -9,12 +9,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.[hash:8].js',
+    chunkFilename: 'thunk.[thunkhash:8].js',
+    publicPath: '/',
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', 'tsx'],
+    extensions: ['.js', '.jsx'],
     alias: {
-      '@/*': path.resolve(__dirname, '../src/*'),
+      '@/*': path.resolve(__dirname, './src/*'),
     },
   },
 
@@ -93,5 +95,10 @@ module.exports = {
     // progress:true, // 已废弃的API，将只能用于控制台
     host: 'localhost',
     port: 3000,
+    stats: {
+      modules: false,
+      debug: false,
+      colors: true,
+    },
   },
 };

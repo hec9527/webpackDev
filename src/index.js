@@ -6,8 +6,6 @@ import './t/index.scss';
 import './index.jsx';
 import './index.tsx';
 
-console.log('hello world');
-
 const body = document.body;
 const el_ico = document.createElement('img');
 el_ico.src = logo;
