@@ -3,6 +3,7 @@ import avator from './t/avator.png';
 import wallpaper from './t/wallpaper.jpg';
 import './t/index.css';
 import './t/index.scss';
+import './t/index.less';
 import './index.jsx';
 import './index.tsx';
 

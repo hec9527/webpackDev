@@ -1,6 +1,6 @@
 import React from 'react';
 import Dom from 'react-dom';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import MyInput from './input.jsx';
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Button type='primary' style={{ margin: 5 }}>
         hello jsx
       </Button>
+      <Input />
     </>
   );
 }

@@ -11,3 +11,7 @@ body{
     height: 100px;
     background: red;
 }
+
+#app{
+    user-select: none;
+}

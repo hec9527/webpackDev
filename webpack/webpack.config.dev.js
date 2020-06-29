@@ -6,6 +6,8 @@ const resolve = relativePath => {
   return path.resolve(__dirname, '..', relativePath);
 };
 
+const baseStyleLoader = ['style-loader', 'css-loader', 'postcss-loader'];
+
 module.exports = {
   mode: 'development',
 
@@ -32,22 +34,22 @@ module.exports = {
         oneOf: [
           {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader'],
+            use: ['style-loader', 'css-loader', 'postcss-loader'],
             exclude: /node_modules/,
           },
           {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader'],
+            use: ['style-loader', 'css-loader', 'postcss-loader'],
           },
         ],
       },
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
       },
       {
         test: /\.s(a|c)ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
         exclude: /node_modules/,
       },
       {
