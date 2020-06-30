@@ -17,7 +17,7 @@ module.exports = {
     path: resolve('build'),
     filename: 'js/[id].[hash:8].js',
     chunkFilename: 'js/[id].[chunkhash:8].js',
-    publicPath: '/',
+    publicPath: './',
   },
 
   resolve: {
@@ -170,10 +170,10 @@ module.exports = {
     host: 'localhost',
     port: 3000,
     hot: true,
-    // open: false,
+    open: false,
     compress: false,
     overlay: true,
-    // quiet: true, // 使用  friendly-errors-webpack-plugin 时需要打开
+    quiet: true, // 使用  friendly-errors-webpack-plugin 时需要打开
     stats: {
       modules: false,
       debug: false,

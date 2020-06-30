@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
@@ -18,7 +19,7 @@ module.exports = {
     path: resolve('build'),
     filename: 'js/[id].[hash:8].js',
     chunkFilename: 'js/[id].[chunkhash:8].js',
-    publicPath: '/',
+    publicPath: './',
   },
 
   resolve: {
@@ -39,22 +40,22 @@ module.exports = {
         oneOf: [
           {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader', 'postcss-loader'],
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
             exclude: /node_modules/,
           },
           {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader', 'postcss-loader'],
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
           },
         ],
       },
       {
         test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader'],
       },
       {
         test: /\.s(a|c)ss$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
         exclude: /node_modules/,
       },
       {
@@ -173,6 +174,12 @@ module.exports = {
       exclude: [/dist/, /build/],
       cache: true,
       sourceMap: false,
+    }),
+    // 抽离并且压缩CSS代码
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].min.css',
+      chunkFilename: 'css/[id].min.css',
+      publicPath: './',
     }),
   ],
 
