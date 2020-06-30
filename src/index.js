@@ -17,3 +17,7 @@ el_avator.src = avator;
 body.appendChild(el_avator);
 
 body.style.background = `url(${wallpaper})`;
+
+// 验证代理，需要起一个后端服务，并且监听  /api/ 路径
+
+fetch('/api/name');
