@@ -54,6 +54,7 @@ module.exports = {
       },
       {
         // 处理图片文件，推荐使用url-loader,  url和file 这两个loader 不能组合使用
+        // 如果需要处理HTML文件中的图片引入，则需要使用  html-withimg-loader
         test: /\.(png|jpg|jpeg|gif|svg|bmp|ico)$/i,
         use: [
           {
