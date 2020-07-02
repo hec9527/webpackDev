@@ -17,12 +17,12 @@ module.exports = {
     path: resolve('build'),
     filename: 'js/[id].[hash:8].js',
     chunkFilename: 'js/[id].[chunkhash:8].js',
-    publicPath: './',
+    publicPath: '/', // 不能使用  ./ 否则会导致css文件无法插入同时浏览器会报错
   },
 
   resolve: {
     // 如果写 则必须包含'.js' 否则会找不到部分库文件
-    extensions: ['.js', '.tx', '.tsx'],
+    extensions: ['.tx', '.tsx', '.js'],
     alias: {
       '@/*': resolve('src/*'),
     },
@@ -146,7 +146,7 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NamedModulesPlugin(), // 热更新时打印文件名称而不是 文件的id  根据需要使用
+    new webpack.NamedModulesPlugin(), // 热更新时打印文件名称而不是 文件的id  根据需要使用
     new webpack.ProgressPlugin(), // 使用这个插件，可以不用在启动命令中添加 --progress
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [resolve('build')],
@@ -184,7 +184,14 @@ module.exports = {
     proxy: {
       '/api/': {
         target: 'http://localhost:8008', // 将所有包含 /ap/ 请求路径的请求代理的 8008端口
+        // pathRewrite: {"^/api" : ""}  // 如果后端的请求路径不包含 /api/， 则转发的时候去掉 /api/
       },
+    },
+    // 可以引入其它文件以及路径mock数据
+    before(app) {
+      app.get('/api/user', (req, res) => {
+        res.json({ name: '张三', age: 24, address: '广顺南大街' });
+      });
     },
   },
 };

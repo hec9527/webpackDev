@@ -20,4 +20,4 @@ body.style.background = `url(${wallpaper})`;
 
 // 验证代理，需要起一个后端服务，并且监听  /api/ 路径
 
-fetch('/api/name');
+fetch('/api/user');
