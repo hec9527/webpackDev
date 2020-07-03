@@ -1,11 +1,11 @@
-import logo from './t/favicon.ico';
-import avator from './t/avator.png';
-import wallpaper from './t/wallpaper.jpg';
-import './t/index.css';
-import './t/index.scss';
-import './t/index.less';
 import './index.jsx';
 import './index.tsx';
+import avator from './t/avator.png';
+import logo from './t/favicon.ico';
+import './t/index.css';
+import './t/index.less';
+import './t/index.scss';
+import wallpaper from './t/wallpaper.jpg';
 
 const body = document.body;
 const el_ico = document.createElement('img');
