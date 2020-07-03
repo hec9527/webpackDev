@@ -131,12 +131,6 @@ npm i eslint tslint typescript -g
 tsc --init
 ```
 
-### tslint初始化
-
-```shell
-tslint --init
-```
-
 #### `tsconfig.json`配置修改
 
 ```json
@@ -159,6 +153,8 @@ tslint --init
 ```
 
 #### eslint
+
+> 根据实际需要配置eslint，配置完成之后可以使用 `eslint src --ext .js`测试eslint是否配置成功，以及是否有依赖尚未安装
 
 ```shell
 npm i eslint -g
