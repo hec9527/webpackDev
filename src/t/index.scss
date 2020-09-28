@@ -7,6 +7,11 @@
 }
 
 #app{
+    width: 100%;
+    min-height:400px;
+    background: #abf9;
+    position: relative;
+
     &::after{
         content: 'app after';
         position: relative;

@@ -1,5 +1,4 @@
 import React from 'react';
-import Dom from 'react-dom';
 import { Button, Input } from 'antd';
 import MyInput from './input.jsx';
 
@@ -15,4 +14,4 @@ function App() {
   );
 }
 
-Dom.render(<App />, document.getElementById('jsx'));
+export default App;

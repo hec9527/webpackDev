@@ -145,6 +145,11 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      name: JSON.stringify('曹尼玛'),
+      address: "'广顺南大街 59号'",
+    }),
+
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // 热更新时打印文件名称而不是 文件的id  根据需要使用
     new webpack.ProgressPlugin(), // 使用这个插件，可以不用在启动命令中添加 --progress

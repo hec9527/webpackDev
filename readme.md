@@ -435,6 +435,7 @@ module: {
 - ExtractTextPlugin
 - PreloadWebpackPlugin
 - CommonsChunkPlugin
+- webpack.DefinePlugin
 
 > plugins的作用在于将loader处理完成的资源进行压缩、处理、优化、公共代码提取、输出指定目录等
 

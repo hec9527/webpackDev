@@ -1,5 +1,4 @@
-import './index.jsx';
-import './index.tsx';
+import './main.tsx';
 import avator from './t/avator.png';
 import logo from './t/favicon.ico';
 import './t/index.css';
