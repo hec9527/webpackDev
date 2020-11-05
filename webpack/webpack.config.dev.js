@@ -151,7 +151,6 @@ module.exports = {
     }),
 
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(), // 热更新时打印文件名称而不是 文件的id  根据需要使用
     new webpack.ProgressPlugin(), // 使用这个插件，可以不用在启动命令中添加 --progress
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [resolve('build')],
@@ -168,6 +167,13 @@ module.exports = {
         collapseWhitespace: false,
         removeAttributeQuotes: false,
       },
+    }),
+    // 将 devtool 设置为 false，直接调用 webpack sourcemap 插件，并且针对性优化性能
+    new webpack.EvalSourceMapDevToolPlugin({
+      columns: false,
+      module: true,
+      exclude: [/node_modules/, /dist/],
+      include: /src/,
     }),
   ],
 
