@@ -439,6 +439,14 @@ module: {
 
 > plugins的作用在于将loader处理完成的资源进行压缩、处理、优化、公共代码提取、输出指定目录等
 
+其它插件
+
+- `IgnorePlugin`  忽略部分第三方包的部分内容
+- `EvalSourceMapDevToolPlugin`  不设置`devtool`的`source-map`，直接调用这个插件配置
+- `FriendlyErrorsWebpackPlugin` 更好的提示
+- `webpack.ProgressPlugin`  显示打包进度
+- `DllPlugin` 将项目依赖的框架单独打包，提高打包速度
+
 ### webpack-dev-server
 
 - contentBase: 开发服务器主目录

@@ -11,7 +11,7 @@ const resolve = relativePath => {
 module.exports = {
   mode: 'development',
 
-  entry: resolve('src/index.js'),
+  entry: resolve('src/antd.tsx'),
 
   output: {
     path: resolve('build'),
@@ -175,6 +175,9 @@ module.exports = {
       exclude: [/node_modules/, /dist/],
       include: /src/,
     }),
+
+    // 可以忽略部分第三方包的内容
+    // new webpack.IgnorePlugin(/\.\/locale/, /moment/),
   ],
 
   devServer: {
