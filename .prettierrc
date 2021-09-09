@@ -3,7 +3,6 @@
     "arrowParens": "avoid",
     "endOfLine": "lf",
     "jsxSingleQuote": true,
-    "parser": "babel",
     "printWidth":120,
     "tabWidth": 2,
     "useTabs": false,
